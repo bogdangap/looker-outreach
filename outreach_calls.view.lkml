@@ -1,4 +1,5 @@
 view: outreach_calls {
+  label: "Calls"
   sql_table_name: prod.outreach_calls ;;
 
   dimension: id {
@@ -85,6 +86,7 @@ view: outreach_calls {
     ]
     sql: ${TABLE}.Attributes.Completedat ;;
   }
+
 
   dimension_group: createdat {
     type: time
@@ -181,6 +183,11 @@ view: outreach_calls {
   measure: IsAnswered {
     type: sum
     sql: ${TABLE}.IsAnswered ;;
+  }
+
+  measure: call_duration_minutes {
+    type: sum
+    sql: ROUND(TIMESTAMP_DIFF(${TABLE}.Attributes.Completedat,  ${TABLE}.Attributes.AnsweredAt, second)/60,2) ;;
   }
 
 

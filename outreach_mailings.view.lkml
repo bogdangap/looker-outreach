@@ -1,4 +1,5 @@
 view: outreach_mailings {
+  label: "Mailings"
   sql_table_name: prod.outreach_mailings ;;
 
   dimension: id {
@@ -46,6 +47,13 @@ view: outreach_mailings {
     type: number
     sql: ${TABLE}.TemplateId ;;
   }
+
+
+  dimension: mailbox_user_name {
+    type: string
+    sql: ${TABLE}.UserName ;;
+  }
+
 
   measure: count {
     type: count
@@ -301,4 +309,6 @@ view: outreach_mailings {
     ]
     sql: ${TABLE}.Attributes.Updatedat ;;
   }
+
+
 }

@@ -40,8 +40,14 @@ explore: outreach_mailings {
     relationship: one_to_many
     type:  left_outer
   }
-}
 
+  join: outreach_templates {
+    view_label: "Templates"
+    sql_on: ${outreach_templates.id} =  ${outreach_mailings.template_id}  ;;
+    relationship: one_to_many
+    type:  inner
+  }
+}
 
 explore: outreach_calls {
   label: "Calls"

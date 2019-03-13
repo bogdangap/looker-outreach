@@ -1,5 +1,6 @@
 view: outreach_tasks {
   sql_table_name: prod.outreach_tasks ;;
+  label: "Tasks"
 
   dimension: id {
     primary_key: yes
@@ -170,5 +171,10 @@ view: outreach_tasks {
   measure: IsOnTime {
     type: sum
     sql: ${TABLE}.IsOnTime ;;
+  }
+
+  dimension: GeneralType {
+    type: string
+    sql: ${TABLE}.GeneralType ;;
   }
 }
